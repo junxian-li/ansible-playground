@@ -8,4 +8,4 @@
   tasks:
     - name: Hello World
       debug:
-        var: ansible_facts
+        msg: "this is {{ansible_facts['eth0']['ipv4']['address']}}"
