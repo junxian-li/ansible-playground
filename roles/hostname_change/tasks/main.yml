@@ -8,5 +8,4 @@
   tasks:
     - name: Hello World
       debug:
-        msg: "Hello World!!!"
         var: ansible_facts
