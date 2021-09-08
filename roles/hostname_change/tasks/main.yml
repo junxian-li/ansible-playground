@@ -1,7 +1,7 @@
 ---
 # tasks file for hostname_change
 
-- name: Network Getting Started First Playbook
+- name: Hostname Change
   gather_facts: true
   hosts: all
   become: yes
@@ -9,3 +9,4 @@
     - name: Hello World
       debug:
         msg: "Hello World!!!"
+        var: ansible_facts
