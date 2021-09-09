@@ -11,4 +11,4 @@
         msg: "this is {{ansible_facts['eth0']['ipv4']['address']}}"
     - name: Match
       debug:
-        msg: "this is my name {{ lookup('csvfile', {{ansible_facts['eth0']['ipv4']['address']}} + ' file=hostlookup.csv delimiter=, col=1') }}"
+        msg: "this is my name {{ lookup('csvfile', '10.0.0.212 file=hostlookup.csv delimiter=, col=1') }}"
