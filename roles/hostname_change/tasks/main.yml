@@ -18,4 +18,4 @@
     - name: Set Hostname
       ansible.builtin.hostname:
         name: instance_hostname
-        strategy: systemd 
+        use: systemd
