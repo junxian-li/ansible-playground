@@ -9,6 +9,13 @@
     - name: Hello World
       debug:
         msg: "this is {{ansible_facts['eth0']['ipv4']['address']}}"
-    - name: Match
+    - name: Get Hostname
+      set_fact:
+        instance_hostname: "{{ lookup('csvfile', ansible_facts['eth0']['ipv4']['address'] + ' file=hostlookup.csv delimiter=, col=1') }}"
+    - name:
       debug:
-        msg: "this is my name {{ lookup('csvfile', {{ansible_facts['eth0']['ipv4']['address']}} + ' file=hostlookup.csv delimiter=, col=1') }}"
+        msg: "this is my name {{instance_hostname}}"
+    - name: Set Hostname
+      ansible.builtin.hostname:
+        name: {{instance_hostname}}
+        strategy: systemd 
