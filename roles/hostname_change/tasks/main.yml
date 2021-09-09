@@ -9,3 +9,6 @@
     - name: Hello World
       debug:
         msg: "this is {{ansible_facts['eth0']['ipv4']['address']}}"
+    - name: Match
+      debug:
+        msg: "my name is {{ lookup('csvfile', {{ansible_facts['eth0']['ipv4']['address']}} + ' file=hostlookup.csv delimiter=, col=1') }}"
