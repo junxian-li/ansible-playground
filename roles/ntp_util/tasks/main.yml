@@ -21,6 +21,7 @@
         - "OS Type    : {{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }} "
         - "NTP Check  : Successful"
         - "NTP Result : {{ntpcheckresults['stdout']}}"
+        - "================================="
       when: ntpcheckresults['stdout'] is regex("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")
 
     - name: Check NTP Details (Failed)
@@ -33,6 +34,7 @@
         - "OS Type    : {{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }} "
         - "NTP Check  : Failed"
         - "NTP Result : {{ntpcheckresults['stdout']}}"
+        - "================================="
       when: not ntpcheckresults['stdout'] is regex("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")
 
     
