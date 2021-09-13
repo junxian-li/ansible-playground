@@ -21,14 +21,14 @@
         use: systemd
     - name: Get NTP Details
       shell: "chronyc tracking | grep Reference | awk '{print $5}'"
-      register: myresults
+      register: ntpcheckresults
 
     - name: Print NTP Details
       debug:
-        msg: "this results {{myresults['stdout']}}"
+        msg: "this results {{ntpcheckresults['stdout']}}"
 
-    - name: Get NTP Detailsgit pull
+    - name: Get NTP Details
       debug:
         msg : "This is a valid NTP address {{myresults}}"
-      when: myresults is regex("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")
+      when: {{ntpcheckresults['stdout']}} is regex("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")
 
