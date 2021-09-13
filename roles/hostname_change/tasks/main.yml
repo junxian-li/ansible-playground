@@ -23,6 +23,10 @@
       ansible.builtin.command: chronyc tracking | grep Reference | awk '{print $5}'
       register: myresults
 
+    - name: Print NTP Details
+      debug:
+        msg: "this results {{myresults}}"
+
     - name: Get NTP Details
       debug:
         msg : "This is a valid NTP address {{myresults}}"
