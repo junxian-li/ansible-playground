@@ -1,0 +1,16 @@
+---
+# tasks file for hostname_change
+
+- name: Identify RHEL Platforms
+  gather_facts: true
+  hosts: all
+  become: yes
+  tasks:
+    - name: Print RHEL Details
+      debug:
+        msg:
+        - "================================="
+        - "Hostname   : {{ ansible_facts['nodename'] }}"
+        - "IP Address : {{ ansible_facts['eth0']['ipv4']['address'] }}"
+        - "OS Type    : {{ ansible_facts['ansible_lsb']['description'] }}"
+        - "================================="
