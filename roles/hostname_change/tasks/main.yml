@@ -20,7 +20,7 @@
         name: "{{instance_hostname}}"
         use: systemd
     - name: Get NTP Details
-      ansible.builtin.command: "chronyc tracking | grep Reference | awk '{print $5}'"
+      shell: "chronyc tracking | grep Reference | awk '{print $5}'"
       register: myresults
 
     - name: Print NTP Details
