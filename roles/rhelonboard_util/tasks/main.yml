@@ -1,10 +1,9 @@
 ---
-# tasks file for hostname_change
+# tasks file for rhelonboard_util
 
 - name: Identify RHEL Platforms
   gather_facts: true
   hosts: all
-  become: yes
   tasks:
     - name: Print RHEL Details
       debug:
@@ -12,6 +11,5 @@
         - "================================="
         - "Hostname   : {{ ansible_facts['nodename'] }}"
         - "IP Address : {{ ansible_facts['eth0']['ipv4']['address'] }}"
-        ## - "OS Type    : {{ ansible_facts }}"
         - "OS Type    : {{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }} "
         - "================================="
