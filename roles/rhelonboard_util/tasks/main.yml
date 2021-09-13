@@ -12,5 +12,6 @@
         - "================================="
         - "Hostname   : {{ ansible_facts['nodename'] }}"
         - "IP Address : {{ ansible_facts['eth0']['ipv4']['address'] }}"
-        - "OS Type    : {{ ansible_facts['lsb']['description'] }}"
+        - "OS Type    : {{ ansible_facts }}"
+        ##- "OS Type    : {{ ansible_facts['lsb']['description'] }}"
         - "================================="
